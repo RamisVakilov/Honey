@@ -1,0 +1,20 @@
+@import 'reset';
+@import 'block';
+@import 'form';
+@import 'cart';
+@import 'footer';
+
+@font-face {
+    font-family: 'Roboto';
+    src: local('Roboto Medium'), local('Roboto-Medium'), url('../fonts/Robotomedium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+footer, section.form, section.cards{
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.container{
+    max-width: $container;
+    margin: 0 auto;
+}

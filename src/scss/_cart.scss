@@ -1,0 +1,72 @@
+.cards{
+    padding-top: 3%;
+    padding-bottom: 10%;
+}
+
+.cards__title{
+    font-size: 36px;
+    color: #37414E;
+   text-align: center;
+   margin-bottom: 5%;
+    }
+
+.cards__items{
+   display: grid;
+   grid-column-gap: 30px;
+   grid-row-gap: 53px;
+   justify-items: center;//горизрнтальное выравнивание
+   align-items: flex-start;//вертикальное выравнивание
+   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); 
+   
+
+    &-item{
+        max-width: 330px;
+        width: 100%;
+        .title__wrap{
+            
+            background-color: $cartFistColor;
+            display: flex;            
+            align-items: center;
+            &_second{
+                background-color: $cartSecondColor;
+            }
+        }
+        .cards-item__title{
+                font-size: 30px;
+                color: #fff;
+                margin: 0 auto;
+                padding: 6% 0;
+            }
+        .cards-item__close{
+                font-size: 58px;
+                color:#e21f7a;
+                position: relative;
+                right: 1vw;
+                &:hover{
+                    cursor: pointer;
+                }
+            }    
+        .info__wrap{
+            
+            background-color: $cartbackColor;
+            padding: 17% 3% 30% 3%;
+
+        }
+    }
+            .cards-item__mail{
+                font-size: 1.3em;
+                color: $cartTextColor;
+                text-align: center;
+                &_second{
+                    color: $cartSecondColor;
+                }
+            }
+            .cards-item__message{
+                margin-top: 15%;
+                font-size: 1rem;
+                color: $cartTextColor;
+                text-align: center;
+                line-height: 30px;
+                
+            }
+}
