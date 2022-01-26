@@ -9,6 +9,5 @@
                    VALUES ('$name','$email','$message')";
     $mysqli->query($query);//sql запрос на базу
     
-
     $mysqli->close();
 ?>
