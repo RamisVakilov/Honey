@@ -2,13 +2,11 @@
 
 window.addEventListener('DOMContentLoaded', function(){
   "use strict"
-  require('cross-fetch/polyfill'); 
-
-  const regeneratorRuntime = require("regenerator-runtime");
+  // require('cross-fetch/polyfill'); 
+  // const regeneratorRuntime = require("regenerator-runtime");
     
     let form = document.querySelector('.form__items');
     let inputs = form.getElementsByTagName('input');
-    window.data ={};//глобальный обьект, данные с сервера будут храниться 
     let textArea = form.getElementsByTagName('textarea');
     let inputClear = (items,area)=>{//очистка input и textarea
       for(let i=0;i<items.length; i++ ){
@@ -31,9 +29,26 @@ window.addEventListener('DOMContentLoaded', function(){
       }
 
     }
+
+  let  myPromise = (url)=>{//получение данных с серыера
+             
+                 fetch(url,{
+                  method:'post'
+                })
+                    .then(function(response){
+                      return response.json() //в json формате получаю данные
+                    })
+                    .then(function(data){//работа с данными которые я получил с сервера
+                            console.log(data);
+                          
+                    })
+      
+    }
+
+
+// ----------------------------------
     inputClear(inputs,textArea);//в начале очищаю
-    
-    
+      
                             
     
     form.addEventListener('submit', formSend);
@@ -49,17 +64,9 @@ window.addEventListener('DOMContentLoaded', function(){
                                         });
                                          
               if (response.ok && response.status == 200) { //После успешной отправки на сервер
-              //получаю последний элемент из таблицы
-                fetch('../../php/getdata.php',{
-                  method:'post'
-                })
-                    .then(function(response){
-                      return response.json() //в json формате получаю данные
-                    })
-                    .then(function(data){//работа с данными которые я получил с сервера
-                        window.data = data;//занес данные в глобальный обьект
-                        
-                    })
+              
+               //myPromise('../../php/getdata.php');//получаю все данные
+              
               }                         
             }
            
