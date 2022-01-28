@@ -4,7 +4,7 @@ let elements = () =>{
    
     
   //------------------------- Отправляю данные на сервер
-  const sendData = async (url, data) =>{
+  const sendData = async (url, data, item) =>{
     const response = await fetch(url, {
       method:"POST",
       body:data,
@@ -19,9 +19,9 @@ let elements = () =>{
     itemsClose.forEach(element => {
         element.addEventListener('click',(event)=>{
             let target = event.target;
-            item = target.parentElement.parentElement;
+            let item = target.parentElement.parentElement;
             let id = target.parentElement.parentElement.id.replace('#','');
-            sendData('../../php/delElement.php',id);
+            sendData('../../php/delElement.php',id,item);
         })
     });
 } 

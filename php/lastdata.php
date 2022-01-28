@@ -11,6 +11,7 @@
     $result = $mysqli->query("SELECT * FROM mybase_table WHERE ID = $id");//последнюю запись
     $data = mysqli_fetch_assoc($result);
 
+    echo 'Последняя запись';
     echo json_encode($data);
     
     $mysqli->close();

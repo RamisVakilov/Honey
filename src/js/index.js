@@ -3,8 +3,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
     const regeneratorRuntime = require("regenerator-runtime");
     "use strict";
    
-    let masck = require ('./moduls/getelement');
-
-    masck();    
-
+    let delElement = require ('./moduls/delElement');
+    let addElement = require('./moduls/addElement');
+    addElement();
+    delElement();    
    })

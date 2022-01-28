@@ -112,6 +112,5 @@
           
     </footer>
 <script src="dist/js/index.js"></script>
-<script src="dist/js/ajax.js"></script>
 </body>
 </html>

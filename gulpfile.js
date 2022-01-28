@@ -28,23 +28,23 @@ let webConfig = {//настройка для webpack
     mode: 'production',//"production" или "development"
    devtool: 'source-map',//создание карты js
 };
-let webConfigAjax = {//настройка для webpack Ajax
-  output:{
-    filename: 'ajax.js'
-  },
-  module:{
-    rules:[
-      {
-        test: /\.js$/,
-        loader:'babel-loader',
-        exclude:'/node_modules/',
-        options: { presets: ['@babel/preset-env'] }
-      }
-    ]
-  },
-  mode: 'production',//"production" или "development"
- devtool: 'source-map',//создание карты js
-};
+// let webConfigAjax = {//настройка для webpack Ajax
+//   output:{
+//     filename: 'ajax.js'
+//   },
+//   module:{
+//     rules:[
+//       {
+//         test: /\.js$/,
+//         loader:'babel-loader',
+//         exclude:'/node_modules/',
+//         options: { presets: ['@babel/preset-env'] }
+//       }
+//     ]
+//   },
+//   mode: 'production',//"production" или "development"
+//  devtool: 'source-map',//создание карты js
+// };
 
 function html(done){//для работы с html файлами
   gulp.src('src/*.html')
@@ -106,13 +106,13 @@ function es6(done){
   .pipe(browserSync.stream());
    done();
 }
-let ajax = (done) =>{
-  gulp.src('src/js/ajax.js')
-  .pipe(webpack(webConfigAjax))
-    .pipe(gulp.dest('dist/js/'))
-    .pipe(browserSync.stream())
-    done();
-}
+// let ajax = (done) =>{
+//   gulp.src('src/js/ajax.js')
+//   .pipe(webpack(webConfigAjax))
+//     .pipe(gulp.dest('dist/js/'))
+//     .pipe(browserSync.stream())
+//     done();
+// }
 function fonts(done){
   gulp.src('src/fonts/*.*')
       .pipe(gulp.dest('dist/fonts/'))
@@ -127,7 +127,7 @@ function watchSass(){//Отслеживаю изменения во всех scs
   gulp.watch('src/img/*+(png|jpg)',img);
   gulp.watch('src/fonts/*.*',fonts);
   gulp.watch('src/js/**/*.js',es6);
-  gulp.watch('src/js/**/*.js',ajax);
+  // gulp.watch('src/js/**/*.js',ajax);
   }
 gulp.task(style);
  gulp.task(sync);
@@ -136,8 +136,8 @@ gulp.task(watchSass);
  gulp.task(img);
  gulp.task(fonts);
  gulp.task(es6);
-gulp.task(ajax);
+// gulp.task(ajax);
 //Функция по умолчанию
-gulp.task('default', gulp.parallel(sync ,watchSass, html, style,img, es6,ajax,fonts));
+gulp.task('default', gulp.parallel(sync ,watchSass, html, style,img, es6,fonts));
 
 

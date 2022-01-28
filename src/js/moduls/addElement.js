@@ -1,10 +1,6 @@
 
-
-window.addEventListener('DOMContentLoaded', function(){
-  "use strict"
-  // require('cross-fetch/polyfill'); 
-  // const regeneratorRuntime = require("regenerator-runtime");
-    
+let addElement = () =>{
+      
     let form = document.querySelector('.form__items');
     let inputs = form.getElementsByTagName('input');
     let textArea = form.getElementsByTagName('textarea');
@@ -58,13 +54,13 @@ window.addEventListener('DOMContentLoaded', function(){
             if(inputCheck(inputs,textArea)){//если поля заполнены
                let formData = new FormData(form);
                inputClear(inputs,textArea);//и после отправки на сервер очищаю
-               let response = await fetch('../../php/server.php',{//создаю response(объект) который содержит запрос на сервер
+               let response = await fetch('../../php/addData.php',{//создаю response(объект) который содержит запрос на сервер
                                         method:'POST',
                                         body: formData
                                         });
                                          
               if (response.ok && response.status == 200) { //После успешной отправки на сервер
-              
+              //Можно вставить этот элемент
                //myPromise('../../php/getdata.php');//получаю все данные
               
               }                         
@@ -74,5 +70,7 @@ window.addEventListener('DOMContentLoaded', function(){
         }
   
   
-});
+
+}
+module.exports = addElement;
 

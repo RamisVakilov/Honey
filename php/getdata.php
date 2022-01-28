@@ -8,6 +8,7 @@
     while($row = mysqli_fetch_assoc($result)){
         $data[]=$row;
          }
+    echo 'Занёс данные в базу данных';     
     echo json_encode($data);
 
     $mysqli->close();
